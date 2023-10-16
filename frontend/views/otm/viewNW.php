@@ -1,0 +1,43 @@
+<?php
+
+use yii\helpers\Html;
+use yii\widgets\DetailView;
+
+/** @var yii\web\View $this */
+/** @var \backend\models\Ospiti $ospite */
+/** @var \backend\models\OspitiTessera $$ot   s */
+/** @var \backend\models\Tessera $tessera */
+/** @var yii\widgets\ActiveForm $form */
+
+$this->title = $ot->id;
+$this->params['breadcrumbs'][] = ['label' => 'Ospiti Tessere', 'url' => ['index']];
+$this->params['breadcrumbs'][] = $this->title;
+\yii\web\YiiAsset::register($this);
+?>
+<div class="ospiti-view">
+
+    <h1><?= Html::encode($this->title) ?></h1>
+
+    <?= DetailView::widget([
+        'model' => $ot,
+        'attributes' => [
+            'id',
+            'cognome',
+            'nome',
+            'nascita',
+            'genere',
+            'nazionalita',
+             'dataRilascio',
+            'dataUltimoRinnovo',
+             'dataScadenza',
+            'QRfilename',
+             'TSfilename',
+            ],
+
+    ]) ?>
+
+
+    
+        <?= Html::a('Update', ['update', 'id' => $ot->id], ['class' => 'btn btn-primary']) ?>
+
+</div>

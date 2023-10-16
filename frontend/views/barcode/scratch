@@ -1,0 +1,38 @@
+'delete' => function($url, $model) use ($var) {
+       $options = [
+              'data-confirm' => 'YOUR_MESSAGE',
+                    'data-method' => 'post',
+             ];
+       return Html::a('<i class="fa fa-trash" style="color: var(--danger);"></i>', $url, $options);
+ },
+
+
+        $growl = [
+
+            'title' => "Group members updated.<hr>",
+
+            'icon' => 'glyphicon glyphicon-ok-sign',
+
+            'message' => "user(s) invited.",
+
+            'showSeparator' => true,
+
+        ];
+
+
+        echo \yii\helpers\Json::encode(['response'=>'success', 'growl' => $growl ]);
+        echo Growl::widget([
+            'type' => Growl::TYPE_SUCCESS,
+            'title' => 'Well done!',
+            'icon' => 'fas fa-check-circle',
+            'body' => 'You successfully read this important alert message.',
+            'showSeparator' => true,
+            'delay' => 0,
+            'pluginOptions' => [
+                'showProgressbar' => true,
+                'placement' => [
+                    'from' => 'top',
+                    'align' => 'right',
+                ]
+            ]
+        ]);
